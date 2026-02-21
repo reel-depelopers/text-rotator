@@ -1,0 +1,33 @@
+# Compiled sources
+/node_modules/
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# IDEs
+.vscode/
+.idea/
+
+# Local configuration
+.env
+.php-version
+
+# Logs
+*.log
+npm-debug.log*
+
+# WordPress specific (though this is a plugin repo, just in case)
+wp-config.php
+wp-content/uploads/
+wp-content/blogs.dir/
+wp-content/upgrade/
+wp-content/backup-db/
+wp-content/advanced-cache.php
+wp-content/wp-cache-config.php
+wp-content/cache/

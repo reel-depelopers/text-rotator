@@ -5,7 +5,7 @@
  * Description: テキストを縦方向にアニメーションで切り替えるGutenbergブロック（モダン構成）
  * Version:     1.1.0
  * Author:      Real dev group (motchii)
- * License:     GPL-2.0-or-later
+ * License:     MIT
  * Text Domain: vertical-rotator
  */
 
