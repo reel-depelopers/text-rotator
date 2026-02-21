@@ -1,0 +1,91 @@
+/* ============================================
+   Vertical Rotator Block - style.css
+   ============================================
+   構造:
+     .wp-block-vr-rotator   … inline-block, position:relative
+       .vr-sizer            … 最長単語で幅確保（visibility:hidden）
+       .vr-text             … absolute で重なってアニメーション
+   ============================================ */
+
+/* ── ラッパー ── */
+.wp-block-vr-rotator {
+  display: inline-block;
+  position: relative;
+  /* vr-text の基点 */
+  vertical-align: middle;
+  padding-block: 0.1em;
+  /* 上下アニメーションのはみ出し余白 */
+  font-size: clamp(28px, 5vw, 64px);
+  /* エディターから上書き可 */
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: default;
+}
+
+/* ── ホバー中：ポーズ状態 ── */
+.wp-block-vr-rotator.vr-paused {
+  cursor: pointer;
+}
+
+/* ── 場所取り要素：最長単語の幅・高さを確保する ── */
+.wp-block-vr-rotator .vr-sizer {
+  display: block;
+  visibility: hidden;
+  /* 不可視だがスペースは占有 */
+  pointer-events: none;
+  white-space: nowrap;
+  user-select: none;
+}
+
+/* ── アニメーションするテキスト ── */
+.wp-block-vr-rotator .vr-text {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* text-align が効く */
+  display: block;
+  white-space: nowrap;
+
+  /* アニメーション transition（下線もふわっと変化） */
+  transition:
+    opacity 0.35s ease-out,
+    transform 0.35s ease-out,
+    text-decoration-color 0.25s ease;
+
+  opacity: 1;
+  transform: translateY(0);
+
+  /* 下線：通常時は透明、ホバー中に currentColor で出現 */
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 5px;
+  text-decoration-thickness: 2px;
+}
+
+/* ホバー中：下線を表示 */
+.wp-block-vr-rotator.vr-paused .vr-text {
+  text-decoration-color: currentColor;
+}
+
+/* ── フェードアウト ＆ 上へ退場 ── */
+.wp-block-vr-rotator .vr-text.vr-exit {
+  opacity: 0;
+  transform: translateY(-18px);
+}
+
+/* ── 下から登場の初期位置（瞬間セット） ── */
+.wp-block-vr-rotator .vr-text.vr-enter {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: none;
+}
+
+/* ── レスポンシブ ── */
+@media (max-width: 767px) {
+
+  .wp-block-vr-rotator .vr-sizer,
+  .wp-block-vr-rotator .vr-text {
+    white-space: normal;
+  }
+}

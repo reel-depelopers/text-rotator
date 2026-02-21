@@ -1,0 +1,13 @@
+/* ============================================
+   Vertical Rotator Block - editor.css
+   エディター専用（Gutenberg内プレビュー）
+   ============================================ */
+
+/* エディター内ではアニメーションせず最初の単語を表示 */
+.wp-block-vr-rotator.is-editor-preview {
+    overflow: visible;
+    border: 2px dashed #007cba;
+    border-radius: 4px;
+    padding: 4px 8px;
+    cursor: default;
+}
